@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>НМИЦ Онкологии</title>
+  <link rel="icon" href="/static/cropped-favicon-32x32.png" sizes="32x32">
+  <style>
+    body {
+      font-family: "Lucida Grande", Verdana, Geneva, Lucida, Arial, Helvetica, sans-serif;
+      background-color: #ffffff;
+      color: #333333;
+    }
+    h2.page_header {
+      color: #6d90c8;
+    }
+    h4.select_header {
+      color: #e53f31;
+    }
+    button {
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+  <!--логотип-->
+  <table border="0">
+  <tr>
+    <td><img src="/static/logo.png" alt="logo" width="181" height="75"></td>
+    <td style="padding-left:50px;">
+    <h2 class="page_header">НИИ клинической онкологии им. Н.Н. Трапезникова</h2></td>
+  </tr>
+  </table>
+  <hr>
+  <!--дерево выбора-->
+  <table border="0" style="margin-left:30px;"><tr><td>
+    <h3>Рак Легкого&nbsp;/&nbsp;III стадия&nbsp;/&nbsp;Немелкоклеточный&nbsp;/&nbsp;Неоперабельный</h3>
+    <h4><a href="page2100">Химиолучевая терапия</a><span style="color:#333333;">&nbsp;/&nbsp;</span><span style="color:#e53f31;">Иммунотерапия</span></h4>
+  </td></tr></table>
+  <hr>
+  <!--поля формы для заполнения-->
+  <!--Пациент:-->
+  <p style="margin-left:30px;"><h4>Пациент:</h4></p>
+  <table border="0" style="margin-left:30px;">
+    <!--1. Фамилия, имя, отчество:, 2. Полис ОМС:-->
+    <tr>
+      <td width="480px">1. Фамилия, имя, отчество:</td>
+      <td width="480px">2. Полис ОМС:</td>
+    </tr>
+    <tr>
+      <td style="padding-left:30px;">
+        <input type="text" name="edtPatientFullName" id="edtPatientFullName" style="width:430px;">
+      </td>
+      <td style="padding-left:30px;">
+        <input type="text" name="edtPatientHealthCIP" id="edtPatientHealthCIP" style="width:430px;">
+      </td>
+    </tr>
+  </table>
+  <!--Выписка-->
+  <p style="margin-left:30px;"><h4>Выписка:</h4></p>
+  <table border="0" style="margin-left:30px;">
+    <!--1. Раса, 8. Ко-мутации p53.-->
+    <tr>
+      <td width="480px">1. Раса:</td>
+      <td width="480px">8. Ко-мутации p53.:</td>
+    </tr>
+    <tr>
+      <td style="padding-left:30px;">
+        <select name="cbxHumanRace" id="cbxHumanRace" style="width:440px;">
+          <option value="100">азиатская</option>
+          <option value="101">европейская</option>
+          <option value="102">другая</option>
+        </select>
+      </td>
+      <td style="padding-left:30px;">
+        <select name="cbxCo_mutationp53" id="cbxCo_mutationp53" style="width:440px;">
+          <option value="800">нет</option>
+          <option value="801">да</option>
+        </select>
+      </td>
+    </tr>
+    <!--2. Пол:, 9. Ко-мутации STK11-->
+    <tr>
+      <td width="480px">2. Пол:</td>
+      <td width="480px">9. Ко-мутации STK11:</td>
+    </tr>
+    <tr>
+      <td style="padding-left:30px;">
+        <select name="cbxGender" id="cbxGender" style="width:440px;">
+          <option value="200">мужской</option>
+          <option value="201">женский</option>
+        </select>
+      </td>
+      <td style="padding-left:30px;">
+        <select name="cbxCo_mutationSTK11" id="cbxCo_mutationSTK11" style="width:440px;">
+          <option value="900">нет</option>
+          <option value="901">да</option>
+        </select>
+      </td>
+    </tr>
+    <!--3. Возраст:, 10. Ко-мутации KEAP1:-->
+    <tr>
+      <td width="480px">3. Возраст:</td>
+      <td width="480px">10. Ко-мутации KEAP1:</td>
+    </tr>
+    <tr>
+      <td style="padding-left:30px;">
+        <select name="cbxAge" id="cbxAge" style="width:440px;">
+          <option value="300">до 70</option>
+          <option value="301">&gt;70</option>
+        </select>
+      </td>
+      <td style="padding-left:30px;">
+        <select name="cbxCo_mutationKEAP1" id="cbxCo_mutationKEAP1" style="width:440px;">
+          <option value="1000">нет</option>
+          <option value="1001">да</option>
+        </select>
+      </td>
+    </tr>
+    <!--4. Статус курения:, 11. Срок от окончания ХЛТ:-->
+    <tr>
+      <td width="480px">4. Статус курения:</td>
+      <td width="480px">11. Срок от окончания ХЛТ:</td>
+    </tr>
+    <tr>
+      <td style="padding-left:30px;">
+        <select name="cbxSmokingStatus" id="cbxSmokingStatus" style="width:440px;">
+          <option value="400">в настоящее время</option>
+          <option value="401">курение в прошлом (бросил более 1 месяца до 1 года)</option>
+          <option value="402">курение в прошлом (бросил более 1 года)</option>
+        </select>
+      </td>
+      <td style="padding-left:30px;">
+        <select name="cbxPeriodFromCLT" id="cbxPeriodFromCLT" style="width:440px;">
+          <option value="1100">до 42 дней</option>
+          <option value="1101">от 43 до 60 дней</option>
+          <option value="1102">более 61 дня</option>
+        </select>
+      </td>
+    </tr>
+    <!--5. ECOG:, 12. Молекулярный статус (только для неплоскоклеточного рака):-->
+    <tr>
+      <td width="480px">5. ECOG:</td>
+      <td width="480px">12. Молекулярный статус (неплоскоклеточный):</td>
+    </tr>
+    <tr>
+      <td style="padding-left:30px;">
+        <select name="cbxECOG" id="cbxECOG" style="width:440px;">
+          <option value="500">0-1</option>
+          <option value="501">2</option>
+        </select>
+      </td>
+      <td style="padding-left:30px;">
+        <select name="cbxMolecularStatus" id="cbxMolecularStatus" style="width:440px;">
+          <option value="1200">нет мутаций</option>
+          <option value="1201">не исследовались</option>
+          <option value="1202">ALK позитивный</option>
+          <option value="1203">EGFR редкий вариант</option>
+          <option value="1204">EGFR ex19</option>
+          <option value="1205">EGFR ex21</option>
+        </select>
+      </td>
+    </tr>
+    <!--6. Есть опухолевая нагрузка? (симптомная опухоль):, 13. PD-L1 статус:-->
+    <tr>
+      <td width="480px">6. Есть опухолевая нагрузка? (симптомная опухоль):</td>
+      <td width="480px">13. PD-L1 статус:</td>
+    </tr>
+    <tr>
+      <td style="padding-left:30px;">
+        <select name="cbxTumorLoad" id="cbxTumorLoad" style="width:440px;">
+          <option value="600">нет</option>
+          <option value="601">да</option>
+        </select>
+      </td>
+      <td style="padding-left:30px;">
+        <select name="cbxPD_L1Status" id="cbxPD_L1Status" style="width:440px;">
+          <option value="1300">не исследовался</option>
+          <option value="1301">менее 1%</option>
+          <option value="1302">более 1%</option>
+        </select>
+      </td>
+    </tr>
+    <!--7. Ко-мутации KRAS:, 14. Предпочтение пациента по ответу на терапию:-->
+    <tr>
+      <td width="480px">7. Ко-мутации KRAS:</td>
+      <td width="480px">14. Предпочтение пациента по ответу на терапию:</td>
+    </tr>
+    <tr>
+      <td style="padding-left:30px;">
+        <select name="cbxCo_mutationKRAS" id="cbxCo_mutationKRAS" style="width:440px;">
+          <option value="700">нет</option>
+          <option value="701">да</option>
+        </select>
+      </td>
+      <td style="padding-left:30px;">
+        <select name="cbxPatientPreference" id="cbxPatientPreference" style="width:440px;">
+          <option value="1400">результативность лечения</option>
+          <option value="1401">сохранение качества жизни</option>
+        </select>
+      </td>
+    </tr>
+  </table>
+  <!--Назначить лечение:-->
+  <p style="margin-left:30px;"><h4>Назначить лечение:</h4></p>
+  <table border="0" style="margin-left:30px;">
+    <!--1. Медикамент:, 3. Альтернатива:-->
+    <tr>
+      <td width="480px">1. Медикамент:</td>
+      <td width="480px">3. Альтернатива, если 50% - обязательно:</td>
+    </tr>
+    <tr>
+      <td style="padding-left:30px;">
+        <select name="cbxMedication" id="cbxMedication" style="width:440px;">
+          <option value="1500">наблюдение</option>
+          <option value="1501">Алектиниб</option>
+          <option value="1502">Дурвалумаб</option>
+          <option value="1503">Осимертиниб</option>
+        </select>
+      </td>
+      <td style="padding-left:30px;">
+        <select name="cbxAlternative" id="cbxAlternative" style="width:440px;">
+          <option value="1700">0</option>
+          <option value="1701">наблюдение</option>
+          <option value="1702">Алектиниб</option>
+          <option value="1703">Дурвалумаб</option>
+          <option value="1704">Осимертиниб</option>
+        </select>
+      </td>
+    </tr>
+    <!--2. Уверенность:, 4. Комментарий:-->
+    <tr>
+      <td width="480px">2. Уверенность:</td>
+      <td width="480px">4. Комментарий:</td>
+    </tr>
+    <tr>
+      <td style="padding-left:30px;">
+        <select name="cbxConfidence" id="cbxConfidence" style="width:440px;">
+          <option value="1600">100 %</option>
+          <option value="1601">75 %</option>
+          <option value="1602">50 %</option>
+        </select>
+      </td>
+      <td style="padding-left:30px;">
+        <select name="cbxComment" id="cbxComment" style="width:440px;">
+          <option value="1800">0</option>
+          <option value="1801">нет доказательной базы для назначения после перерыва &gt;61 дня после хлт</option>
+          <option value="1802">возможно есть мутации и эффективность дурвалумаба будет низкой</option>
+          <option value="1803">возможна низкая эффективность дурвалумаба, осимертиниб без доказательной базы</option>
+          <option value="1804">возможна низкая эффективность дурвалумаба, осимертиниб без доказательной базы, эффективность осимертиниба ниже при 21 экзоне</option>
+          <option value="1805">возможна низкая эффективность дурвалумаба, алектиниб без доказательной базы</option>
+          <option value="1806">возможна низкая эффективность дурвалумаба при pd-1 &lt; 1%</option>
+          <option value="1807">возможна низкая эффективность дурвалумаба при pd-1 &lt; 1%, возможно есть активирующие мутации</option>
+          <option value="1808">вероятность 45% pd-l1 &lt; 1% с потенциально низкой эффективностью дурвалумаба</option>
+          <option value="1809">возможно есть мутации и эффективность дурвалумаба будет низкой, вероятность 45% pd-l1 &lt; 1% с потенциально низкой эффективностью дурвалумаба</option>
+          <option value="1810">возможно есть мутации и эффективность дурвалумаба будет низкой, возможна низкая эффективность дурвалумаба при pd-1 &lt; 1%</option>
+        </select>
+      </td>
+    </tr>
+  </table>
+  <br><hr>
+  <!--ввод параметров завершен, отправляем данные на сервер-->
+  <p style="margin-left:30px;"><button id="sendModel2101Btn"><strong>Назначить лечение</strong></button></p>
+  <!--обработка событий-->
+  <script>
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    //~ отправка запроса с данными для обработки моделью 
+    async function sendModel2101(strPatientFullName, strPatientHealthCIP,
+                                 inxHumanRace,
+                                 inxGender,
+                                 inxAge,
+                                 inxSmokingStatus,
+                                 inxECOG,
+                                 inxTumorLoad,
+                                 inxCo_mutationKRAS,
+                                 inxCo_mutationp53,
+                                 inxCo_mutationSTK11,
+                                 inxCo_mutationKEAP1,
+                                 inxPeriodFromCLT,
+                                 inxMolecularStatus,
+                                 inxPD_L1Status,
+                                 inxPatientPreference,
+                                 inxMedication,
+                                 inxConfidence,
+                                 inxAlternative,
+                                 inxComment) {
+      const response = await fetch("/model2101", {
+        method: "POST",
+        headers: { "Accept": "application/json", "Content-Type": "application/json" },
+        body: JSON.stringify({
+          strPatientFullName: strPatientFullName,
+          strPatientHealthCIP: strPatientHealthCIP,
+          inxHumanRace: inxHumanRace,
+          inxGender: inxGender,
+          inxAge: inxAge,
+          inxSmokingStatus: inxSmokingStatus,
+          inxECOG: inxECOG,
+          inxTumorLoad: inxTumorLoad,
+          inxCo_mutationKRAS: inxCo_mutationKRAS,
+          inxCo_mutationp53: inxCo_mutationp53,
+          inxCo_mutationSTK11: inxCo_mutationSTK11,
+          inxCo_mutationKEAP1: inxCo_mutationKEAP1,
+          inxPeriodFromCLT: inxPeriodFromCLT,
+          inxMolecularStatus: inxMolecularStatus,
+          inxPD_L1Status: inxPD_L1Status,
+          inxPatientPreference: inxPatientPreference,
+          inxMedication: inxMedication,
+          inxConfidence: inxConfidence,
+          inxAlternative: inxAlternative,
+          inxComment: inxComment
+        })
+      });
+      if (response.ok) {
+        const data = await response.json();
+        //p - page marker
+        window.location.href = '/report2101?pmarker=' + data.report_marker; 
+      }
+      else {
+        alert('Ой, ошибка...')
+        console.log(response);
+      }
+    }
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    //~ формирование запроса для обработки моделью 
+    document.getElementById("sendModel2101Btn").addEventListener("click", async () => {
+      //<!--Пациент:-->
+      strPatientFullName = document.getElementById("edtPatientFullName").value;
+      strPatientHealthCIP = document.getElementById("edtPatientHealthCIP").value;
+      console.log('strPatientFullName:'+strPatientFullName);
+      console.log('strPatientHealthCIP:'+strPatientHealthCIP);
+      //<!--Выписка-->
+      //~ 1 cbxHumanRace
+      inxHumanRace = document.getElementById("cbxHumanRace").selectedIndex;
+      console.log('inxHumanRace:'+inxHumanRace);
+      //~ 2 inxGender
+      inxGender = document.getElementById("cbxGender").selectedIndex;
+      console.log('inxGender:'+inxGender);
+      //~ 3 Возраст
+      inxAge = document.getElementById("cbxAge").selectedIndex;
+      console.log('inxAge:'+inxAge);
+      //~ 4 Статус курения
+      inxSmokingStatus = document.getElementById("cbxSmokingStatus").selectedIndex;
+      console.log('inxSmokingStatus:'+inxSmokingStatus);
+      //~ 5 ECOG
+      inxECOG = document.getElementById("cbxECOG").selectedIndex;
+      console.log('inxECOG:'+inxECOG);
+      //~ 6 Есть опухолевая нагрузка? (симптомная опухоль)
+      inxTumorLoad = document.getElementById("cbxTumorLoad").selectedIndex;
+      console.log('inxTumorLoad:'+inxTumorLoad);
+      //~ 7 Ко-мутации KRAS
+      inxCo_mutationKRAS = document.getElementById("cbxCo_mutationKRAS").selectedIndex;
+      console.log('inxCo_mutationKRAS:'+inxCo_mutationKRAS);
+      //~ 8 Ко-мутации p53.
+      inxCo_mutationp53 = document.getElementById("cbxCo_mutationp53").selectedIndex;
+      console.log('inxCo_mutationp53:'+inxCo_mutationp53);
+      //~ 9 inxCo_mutationSTK11
+      inxCo_mutationSTK11 = document.getElementById("cbxCo_mutationSTK11").selectedIndex;
+      console.log('inxCo_mutationSTK11:'+inxCo_mutationSTK11);
+      //~ 10 Ко-мутации KEAP1
+      inxCo_mutationKEAP1 = document.getElementById("cbxCo_mutationKEAP1").selectedIndex;
+      console.log('inxCo_mutationKEAP1:'+inxCo_mutationKEAP1);
+      //~ 11 Срок от окончания ХЛТ
+      inxPeriodFromCLT = document.getElementById("cbxPeriodFromCLT").selectedIndex;
+      console.log('inxPeriodFromCLT:'+inxPeriodFromCLT);
+      //~ 12 Молекулярный статус (только для неплоскоклеточного рака)
+      inxMolecularStatus = document.getElementById("cbxMolecularStatus").selectedIndex;
+      console.log('inxMolecularStatus:'+inxMolecularStatus);
+      //~ 13 PD-L1 статус
+      inxPD_L1Status = document.getElementById("cbxPD_L1Status").selectedIndex;
+      console.log('inxPD_L1Status:'+inxPD_L1Status);
+      //~ 14 Предпочтение пациента по ответу на терапию
+      inxPatientPreference = document.getElementById("cbxPatientPreference").selectedIndex;
+      console.log('inxPatientPreference:'+inxPatientPreference);
+      //~~~~~~~~~~~~~~~~~~~~~~~~
+      //~ 15 Медикамент (назначение врача)
+      inxMedication = document.getElementById("cbxMedication").selectedIndex;
+      console.log('inxMedication:'+inxMedication);
+      //~ 16 Уверенность
+      inxConfidence = document.getElementById("cbxConfidence").selectedIndex;
+      console.log('inxConfidence:'+inxConfidence);
+      //~ 17 Альтернатива, если 50% - обязательно
+      inxAlternative = document.getElementById("cbxAlternative").selectedIndex;
+      console.log('inxAlternative:'+inxAlternative);
+      //~ 18 Комментарий
+      inxComment = document.getElementById("cbxComment").selectedIndex;
+      console.log('inxComment:'+inxComment);
+      //~~~~~~~~~~~~~~~~~~~~~~~~
+      await sendModel2101(strPatientFullName, strPatientHealthCIP,
+                          inxHumanRace,
+                          inxGender,
+                          inxAge,
+                          inxSmokingStatus,
+                          inxECOG,
+                          inxTumorLoad,
+                          inxCo_mutationKRAS,
+                          inxCo_mutationp53,
+                          inxCo_mutationSTK11,
+                          inxCo_mutationKEAP1,
+                          inxPeriodFromCLT,
+                          inxMolecularStatus,
+                          inxPD_L1Status,
+                          inxPatientPreference,
+                          inxMedication,
+                          inxConfidence,
+                          inxAlternative,
+                          inxComment);
+    });
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    window.onload = function() {
+      document.getElementById("edtPatientFullName").value = "Потапова Анастасия Леонтьевна";
+      document.getElementById("edtPatientHealthCIP").value = "1234567890123456";
+      //~~~
+      document.getElementById("cbxHumanRace").value = "101";
+      document.getElementById("cbxGender").value = "201";
+      document.getElementById("cbxAge").value = "300";
+      document.getElementById("cbxSmokingStatus").value = "402";
+      document.getElementById("cbxECOG").value = "501";
+      document.getElementById("cbxTumorLoad").value = "601";
+      document.getElementById("cbxCo_mutationKRAS").value = "701";
+      document.getElementById("cbxCo_mutationp53").value = "801";
+      document.getElementById("cbxCo_mutationSTK11").value = "901";
+      document.getElementById("cbxCo_mutationKEAP1").value = "1001";
+      document.getElementById("cbxPeriodFromCLT").value = "1102";
+      document.getElementById("cbxMolecularStatus").value = "1200";
+      document.getElementById("cbxPD_L1Status").value = "1300";
+      document.getElementById("cbxPatientPreference").value = "1400";
+      //~~~
+      document.getElementById("cbxMedication").value = "1500";
+      document.getElementById("cbxConfidence").value = "1601";
+      document.getElementById("cbxAlternative").value = "1703";
+      document.getElementById("cbxComment").value = "1801";
+    };
+  </script>
+</body>
+</html>

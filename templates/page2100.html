@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>НМИЦ Онкологии</title>
+  <link rel="icon" href="/static/cropped-favicon-32x32.png" sizes="32x32">
+  <style>
+    body {
+      font-family: "Lucida Grande", Verdana, Geneva, Lucida, Arial, Helvetica, sans-serif;
+      background-color: #ffffff;
+      color: #333333;
+    }
+    h2.page_header {
+      color: #6d90c8;
+    }
+    h4.select_header {
+      color: #e53f31;
+    }
+    button {
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+  <!--логотип-->
+  <table border="0">
+  <tr>
+    <td><img src="/static/logo.png" alt="logo" width="181" height="75"></td>
+    <td style="padding-left:50px;">
+    <h2 class="page_header">НИИ клинической онкологии им. Н.Н. Трапезникова</h2></td>
+  </tr>
+  </table>
+  <hr>
+  <!--дерево выбора-->
+  <table border="0" style="margin-left:30px;"><tr><td>
+    <h3>Рак Легкого&nbsp;/&nbsp;III стадия&nbsp;/&nbsp;Немелкоклеточный&nbsp;/&nbsp;Неоперабельный</h3>
+    <h4><span style="color:#e53f31;">Химиолучевая терапия</span><span style="color:#333333;">&nbsp;/&nbsp;</span><a href="page2101">Иммунотерапия</a></h4>
+  </td></tr></table>
+  <hr>
+  <!--поля формы для заполнения-->
+  <!--Пациент:-->
+  <p style="margin-left:30px;"><h4>Пациент:</h4></p>
+  <table border="0" style="margin-left:30px;">
+    <!--1. Фамилия, имя, отчество:, 2. Полис ОМС:-->
+    <tr>
+      <td width="480px">1. Фамилия, имя, отчество:</td>
+      <td width="480px">2. Полис ОМС:</td>
+    </tr>
+    <tr>
+      <td style="padding-left:30px;">
+        <input type="text" name="edtPatientFullName" id="edtPatientFullName" style="width:430px;">
+      </td>
+      <td style="padding-left:30px;">
+        <input type="text" name="edtPatientHealthCIP" id="edtPatientHealthCIP" style="width:430px;">
+      </td>
+    </tr>
+  </table>
+  <!--Выписка-->
+  <p style="margin-left:30px;"><h4>Выписка:</h4></p>
+  <table border="0" style="margin-left:30px;">
+    <!--1. Стадия, 6.: 'Молекулярный статус (только для неплоскоклеточного рака)'-->
+    <tr>
+      <td width="480px">1. Стадия:</td>
+      <td width="480px">6. Молекулярный статус (неплоскоклеточный):</td>
+    </tr>
+    <tr>
+      <td style="padding-left:30px;">
+        <select name="cbxStage" id="cbxStage" style="width:440px;">
+          <option value="100">IIIаI</option>
+          <option value="101">IIIб</option>
+        </select>
+      </td>
+      <td style="padding-left:30px;">
+        <select name="cbxMolecularStatus" id="cbxMolecularStatus" style="width:440px;">
+          <option value="600">не исследовались</option>
+          <option value="601">нет мутаций</option>
+          <option value="602">ALK</option>
+          <option value="603">BRAF</option>
+          <option value="604">EGFR (G719X, L816Q, S768I)</option>
+          <option value="605">EGFR T790M</option>
+          <option value="606">EGFR ex18</option>
+          <option value="607">EGFR ex19</option>
+          <option value="608">EGFR ex20</option>
+          <option value="609">EGFR ex21</option>
+          <option value="610">HER2</option>
+          <option value="611">KRAS G12C</option>
+          <option value="612">MET 14ex</option>
+          <option value="613">NTRK</option>
+          <option value="614">RET</option>
+          <option value="615">ROS1</option>
+        </select>
+      </td>
+    </tr>
+    <!--2. Гистология, 7. PD-L1 статус-->
+    <tr>
+      <td width="480px">2. Гистология:</td>
+      <td width="480px">7. PD-L1 статус:</td>
+    </tr>
+    <tr>
+      <td style="padding-left:30px;">
+        <select name="cbxHistology" id="cbxHistology" style="width:440px;">
+          <option value="200">плоскоклеточный</option>
+          <option value="201">неплоскоклеточный</option>
+          <option value="202">мелкоклеточный</option>
+        </select>
+      </td>
+      <td style="padding-left:30px;">
+        <select name="cbxPD_L1Status" id="cbxPD_L1Status" style="width:440px;">
+          <option value="700">не исследовался</option>
+          <option value="701">1 %</option>
+          <option value="702">1–49 %</option>
+          <option value="703">≥50 %</option>
+        </select>
+      </td>
+    </tr>
+    <!--3. ECOG, 8. Статус курения-->
+    <tr>
+      <td width="480px">3. ECOG:</td>
+      <td width="480px">8. Статус курения:</td>
+    </tr>
+    <tr>
+      <td style="padding-left:30px;">
+        <select name="cbxECOG" id="cbxECOG" style="width:440px;">
+          <option value="300">0-1</option>
+          <option value="301">2</option>
+          <option value="302">3+</option>
+        </select>
+      </td>
+      <td style="padding-left:30px;">
+        <select name="cbxSmokingStatus" id="cbxSmokingStatus" style="width:440px;">
+          <option value="800">в настоящее время</option>
+          <option value="801">курение в прошлом (бросил более 1 месяца до 1 года)</option>
+          <option value="802">курение в прошлом (бросил более 1 года)</option>
+          <option value="803">никогда не курил</option>
+        </select>
+      </td>
+    </tr>
+    <!--4. Возраст:, 9. Относительные противопоказания к ЛТ:-->
+    <tr>
+      <td width="480px">4. Возраст:</td>
+      <td width="480px">9. Относительные противопоказания к ЛТ:</td>
+    </tr>
+    <tr>
+      <td style="padding-left:30px;">
+        <select name="cbxAge" id="cbxAge" style="width:440px;">
+          <option value="400">до 70</option>
+          <option value="401">&gt;70</option>
+        </select>
+      </td>
+      <td style="padding-left:30px;">
+        <select name="cbxContraindicationsRT" id="cbxContraindicationsRT" style="width:440px;">
+          <option value="900">нет</option>
+          <option value="901">да</option>
+        </select>
+      </td>
+    </tr>
+    <!--5. Пол:, 10. Предпочтение пациента по ответу на терапию:-->
+    <tr>
+      <td width="480px">5. Пол:</td>
+      <td width="480px">10. Предпочтение пациента по ответу на терапию:</td>
+    </tr>
+    <tr>
+      <td style="padding-left:30px;">
+        <select name="cbxGender" id="cbxGender" style="width:440px;">
+          <option value="500">мужской</option>
+          <option value="501">женский</option>
+        </select>
+      </td>
+      <td style="padding-left:30px;">
+        <select name="cbxPatientPreference" id="cbxPatientPreference" style="width:440px;">
+          <option value="1000">результативность лечения</option>
+          <option value="1001">сохранение качества жизни</option>
+        </select>
+      </td>
+    </tr>
+  </table>
+  <!--Назначить лечение:-->
+  <p style="margin-left:30px;"><h4>Назначить лечение:</h4></p>
+  <table border="0" style="margin-left:30px;">
+    <!--1. Терапия:, 4. Уверенность:-->
+    <tr>
+      <td width="480px">1. Терапия:</td>
+      <td width="480px">4. Уверенность:</td>
+    </tr>
+    <tr>
+      <td style="padding-left:30px;">
+        <select name="cbxMedication" id="cbxMedication" style="width:440px;">
+          <option value="1100">лучевая терапия</option>
+          <option value="1101">монохимиотерапия</option>
+          <option value="1102">ПХТ</option>
+          <option value="1103">симптоматическая терапия</option>
+          <option value="1104">одномоментная ХЛТ</option>
+          <option value="1105">переход на вариант лечения IV стадии</option>
+          <option value="1106">последовательная ХЛТ</option>
+        </select>
+      </td>
+      <td style="padding-left:30px;">
+        <select name="cbxConfidence" id="cbxConfidence" style="width:440px;">
+          <option value="1400">100 %</option>
+          <option value="1401">75 %</option>
+          <option value="1402">50 %</option>
+        </select>
+      </td>
+    </tr>
+    <!--2. Вариант ХТ:, 5. Альтернатива, если 50% - обязательно:-->
+    <tr>
+      <td width="480px">2. Вариант ХТ:</td>
+      <td width="480px">5. Альтернатива, если 50% - обязательно:</td>
+    </tr>
+    <tr>
+      <td style="padding-left:30px;">
+        <select name="cbxChemotherapyVariant" id="cbxChemotherapyVariant" style="width:440px;">
+          <option value="1200">0</option>
+          <option value="1201">Паклитаксел+Карбоплатин</option>
+          <option value="1202">Пеметрексед</option>
+          <option value="1203">Пеметрексед+Цисплатин</option>
+          <option value="1204">Этопозид Карбоплатин</option>
+          <option value="1205">Этопозид монорежим</option>
+          <option value="1206">Этопозид+Цисплатин</option>
+          <option value="1207">Этопозид цисплатин/карбоплатин Дурвалумаб</option>
+        </select>
+      </td>
+      <td style="padding-left:30px;">
+        <select name="cbxAlternative" id="cbxAlternative" style="width:440px;">
+          <option value="1500">0</option>
+          <option value="1501">вариант лечения IV стадии</option>
+          <option value="1502">Лучевая терапия в монорежиме</option>
+          <option value="1503">Симпоматическая терапия</option>
+          <option value="1504">последовательная ХЛТ</option>
+        </select>
+      </td>
+    </tr>
+    <!--3. Альтернативный выбор ХТ (как компонента ХЛТ):, 6. Комментарий:-->
+    <tr>
+      <td width="480px">3. Альтернативный выбор ХТ (как компонента ХЛТ):</td>
+      <td width="480px">6. Комментарий:</td>
+    </tr>
+    <tr>
+      <td style="padding-left:30px;">
+        <select name="cbxAltChemotherapyVariant" id="cbxAltChemotherapyVariant" style="width:440px;">
+          <option value="1300">0</option>
+          <option value="1301">еженедельный Паклитаксел</option>
+          <option value="1302">Паклитаксел</option>
+          <option value="1303">Пеметрексед</option>
+          <option value="1304">Этопозид монорежим</option>
+          <option value="1305">еженедельный Паклитаксел+карбоплатин</option>
+          <option value="1306">Паклитаксел+карбоплатин</option>
+          <option value="1307">Этопозид карбоплатин</option>
+        </select>
+      </td>
+      <td style="padding-left:30px;">
+        <select name="cbxComment" id="cbxComment" style="width:440px;">
+          <option value="1600">0</option>
+          <option value="1601">Большая вероятность инкурабельности больного</option>
+          <option value="1602">Большая вероятность инкурабельности больного. Детально оценить общесоматический статус для решения вопроса о возможности проведения монохимиотерапии или проведение ЛТ в монорежиме</option>
+          <option value="1603">Возможно рассмотреть вопрос ЛТ в монорежиме</option>
+          <option value="1604">Наиболее часто при мелкоклеточном раке статус по шкале ECOG3 связан с основным заболеванием. И требует скорейшего начала химиотерапии</option>
+          <option value="1605">Необходима более детальная оценка сопутствующей патологии и чем именно обусловлен статус по шкале ECOG 2. Если основным заболеванием, то предпочтение отдаем одновременной ХЛТ, если все-таки тяжесть состояния обусловлена сопутсвующей патологией, то возможно выбрать последовательный вариант ХЛТ. При выборе одновременной ХЛТ, лучше рассмотреть вариант еженедельного введения химиотерапии</option>
+          <option value="1606">Необходима детальная оценка статуса по шкале ECOG. При мелкоклеточном раке чаще всего статус определяет основное заболевание, следовательно возможно начало одновременной ХЛТ, если все таки статус ECOG обусловлен сопуствующей патологией, то возможно отдать предпочтение последовательному варианту ХЛТ</option>
+          <option value="1607">Необходима консультация хирурга для решения вопроса о возможной санации, в случае улучшения общего состояния пациента, возможно рассмотреть вариант проведения последовательной ХЛТ</option>
+          <option value="1608">Необходима консультация хирурга на предмет возможного удаления паренхиматозного очага распада. Если невозможно - тщательная оценка риска кровотечения перед началом лучевой терапии</option>
+          <option value="1609">Требуется дополнительная оценка статуса пациента, консультация хирурга для решения вопроса о возможной санации с последующим решением вопроса о химиотерапии. При невозможности коррекции общего состояния, рассмотреть вопрос о симптоматической терапии</option>
+        </select>
+      </td>
+    </tr>
+  </table>
+  <br><hr>
+  <!--ввод параметров завершен, отправляем данные на сервер-->
+  <p style="margin-left:30px;"><button id="sendModel2100Btn"><strong>Назначить лечение</strong></button></p>
+  <!--обработка событий-->
+  <script>
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    //~ отправка запроса с данными для обработки моделью 
+    async function sendModel2100(strPatientFullName, strPatientHealthCIP,
+                                 inxStage,
+                                 inxHistology,
+                                 inxECOG,
+                                 inxAge,
+                                 inxGender,
+                                 inxMolecularStatus,
+                                 inxPD_L1Status,
+                                 inxSmokingStatus,
+                                 inxContraindicationsRT,
+                                 inxPatientPreference,
+                                 inxMedication,
+                                 inxChemotherapyVariant,
+                                 inxAltChemotherapyVariant,
+                                 inxConfidence,
+                                 inxAlternative,
+                                 inxComment) {
+      const response = await fetch("/model2100", {
+        method: "POST",
+        headers: { "Accept": "application/json", "Content-Type": "application/json" },
+        body: JSON.stringify({
+          strPatientFullName: strPatientFullName,
+          strPatientHealthCIP: strPatientHealthCIP,
+          inxStage: inxStage,
+          inxHistology: inxHistology,
+          inxECOG: inxECOG,
+          inxAge: inxAge,
+          inxGender: inxGender,
+          inxMolecularStatus: inxMolecularStatus,
+          inxPD_L1Status: inxPD_L1Status,
+          inxSmokingStatus: inxSmokingStatus,
+          inxContraindicationsRT: inxContraindicationsRT,
+          inxPatientPreference: inxPatientPreference,
+          inxMedication: inxMedication,
+          inxChemotherapyVariant: inxChemotherapyVariant,
+          inxAltChemotherapyVariant: inxAltChemotherapyVariant,
+          inxConfidence: inxConfidence,
+          inxAlternative: inxAlternative,
+          inxComment: inxComment
+        })
+      });
+      if (response.ok) {
+        const data = await response.json();
+        //p - page marker
+        window.location.href = '/report2100?pmarker=' + data.report_marker; 
+      }
+      else {
+        alert('Ой, ошибка...')
+        console.log(response);
+      }
+    }
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    //~ формирование запроса для обработки моделью 
+    document.getElementById("sendModel2100Btn").addEventListener("click", async () => {
+      //<!--Пациент:-->
+      strPatientFullName = document.getElementById("edtPatientFullName").value;
+      strPatientHealthCIP = document.getElementById("edtPatientHealthCIP").value;
+      console.log('strPatientFullName:'+strPatientFullName);
+      console.log('strPatientHealthCIP:'+strPatientHealthCIP);
+      //<!--Выписка-->
+      //~ 1 Стадия
+      inxStage = document.getElementById("cbxStage").selectedIndex;
+      console.log('inxStage:'+inxStage);
+      //~ 2 Гистология
+      inxHistology = document.getElementById("cbxHistology").selectedIndex;
+      console.log('inxHistology:'+inxHistology);
+      //~ 3 ECOG
+      inxECOG = document.getElementById("cbxECOG").selectedIndex;
+      console.log('inxECOG:'+inxECOG);
+      //~ 4 Возраст
+      inxAge = document.getElementById("cbxAge").selectedIndex;
+      console.log('inxAge:'+inxAge);
+      //~ 5 Пол
+      inxGender = document.getElementById("cbxGender").selectedIndex;
+      console.log('inxGender:'+inxGender);
+      //~ 6 Молекулярный статус (только для неплоскоклеточного рака)
+      inxMolecularStatus = document.getElementById("cbxMolecularStatus").selectedIndex;
+      console.log('inxMolecularStatus:'+inxMolecularStatus);
+      //~ 7 PD-L1 статус
+      inxPD_L1Status = document.getElementById("cbxPD_L1Status").selectedIndex;
+      console.log('inxPD_L1Status:'+inxPD_L1Status);
+      //~ 8 Статус курения
+      inxSmokingStatus = document.getElementById("cbxSmokingStatus").selectedIndex;
+      console.log('inxSmokingStatus:'+inxSmokingStatus);
+      //~ 9 Относительные противопоказания к ЛТ
+      inxContraindicationsRT = document.getElementById("cbxContraindicationsRT").selectedIndex;
+      console.log('inxContraindicationsRT:'+inxContraindicationsRT);
+      //~ 10 Предпочтение пациента по ответу на терапию
+      inxPatientPreference = document.getElementById("cbxPatientPreference").selectedIndex;
+      console.log('inxPatientPreference:'+inxPatientPreference);
+      //~~~~~~~~~~~~~~~~~~~~~~~~
+      //~ 11 Терапия
+      inxMedication = document.getElementById("cbxMedication").selectedIndex;
+      console.log('inxMedication:'+inxMedication);
+      //~ 12 Вариант ХТ
+      inxChemotherapyVariant = document.getElementById("cbxChemotherapyVariant").selectedIndex;
+      console.log('inxChemotherapyVariant:'+inxChemotherapyVariant);
+      //~ 13 Альтернативный выбор ХТ (как компонента ХЛТ)
+      inxAltChemotherapyVariant = document.getElementById("cbxAltChemotherapyVariant").selectedIndex;
+      console.log('inxAltChemotherapyVariant:'+inxAltChemotherapyVariant);
+      //~ 14 Уверенность
+      inxConfidence = document.getElementById("cbxConfidence").selectedIndex;
+      console.log('inxConfidence:'+inxConfidence);
+      //~ 15 Альтернатива, если 50% - обязательно
+      inxAlternative = document.getElementById("cbxAlternative").selectedIndex;
+      console.log('inxAlternative:'+inxAlternative);
+      //~ 16 Комментарий
+      inxComment = document.getElementById("cbxComment").selectedIndex;
+      console.log('inxComment:'+inxComment);
+      //~~~~~~~~~~~~~~~~~~~~~~~~
+      await sendModel2100(strPatientFullName, strPatientHealthCIP,
+                          inxStage,
+                          inxHistology,
+                          inxECOG,
+                          inxAge,
+                          inxGender,
+                          inxMolecularStatus,
+                          inxPD_L1Status,
+                          inxSmokingStatus,
+                          inxContraindicationsRT,
+                          inxPatientPreference,
+                          inxMedication,
+                          inxChemotherapyVariant,
+                          inxAltChemotherapyVariant,
+                          inxConfidence,
+                          inxAlternative,
+                          inxComment);
+    });
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    window.onload = function() {
+      document.getElementById("edtPatientFullName").value = "Потапова Анастасия Леонтьевна";
+      document.getElementById("edtPatientHealthCIP").value = "1234567890123456";
+      //~~~
+      document.getElementById("cbxStage").value = "100";
+      document.getElementById("cbxHistology").value = "201";
+      document.getElementById("cbxECOG").value = "302";
+      document.getElementById("cbxAge").value = "400";
+      document.getElementById("cbxGender").value = "501";
+      document.getElementById("cbxMolecularStatus").value = "601";
+      document.getElementById("cbxPD_L1Status").value = "700";
+      document.getElementById("cbxSmokingStatus").value = "800";
+      document.getElementById("cbxContraindicationsRT").value = "900";
+      document.getElementById("cbxPatientPreference").value = "1000";
+      //~~~
+      document.getElementById("cbxMedication").value = "1102";
+      document.getElementById("cbxChemotherapyVariant").value = "1203";
+      document.getElementById("cbxAltChemotherapyVariant").value = "1303";
+      document.getElementById("cbxConfidence").value = "1402";
+      document.getElementById("cbxAlternative").value = "1501";
+      document.getElementById("cbxComment").value = "1601";
+    };
+  </script>
+</body>
+</html>
