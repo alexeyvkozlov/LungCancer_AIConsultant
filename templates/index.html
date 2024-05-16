@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>НМИЦ Онкологии</title>
+  <link rel="icon" href="/static/cropped-favicon-32x32.png" sizes="32x32">
+  <style>
+    body {
+      font-family: "Lucida Grande", Verdana, Geneva, Lucida, Arial, Helvetica, sans-serif;
+      background-color: #ffffff;
+      color: #333333;
+    }
+    h2.page_header {
+      color: #6d90c8;
+    }
+    button {
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+  <!--логотип-->
+  <table border="0">
+  <tr>
+    <td><img src="/static/logo.png" alt="logo" width="181" height="75"></td>
+    <td style="padding-left:50px;">
+    <h2 class="page_header">НИИ клинической онкологии им. Н.Н. Трапезникова</h2></td>
+  </tr>
+  </table>
+  <hr>
+  <table border="0" style="margin-left:30px;"><tr><td>
+    <!--авторизация-->
+    <h3>Авторизация</h3>
+    <div>
+      <p>&nbsp;Имя пользователя:<br>&nbsp;&nbsp;
+      <input type="text" name="userName" id="userName"></input>
+      </p>
+      <p>&nbsp;Пароль:<br>&nbsp;&nbsp;
+      <input type="password" name="userPassword" id="userPassword"></input>
+      </p>
+      <p style="margin-left:130px;">
+      <button id="submitBtn"><strong>Войти</strong></button>
+      </p>
+    </div>
+  </td></tr></table>
+  <!--обработка событий-->
+  <script>
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    //~ сброс данных формы после отправки
+    function reset() {
+      document.getElementById("userName").value = 
+      document.getElementById("userPassword").value = "";
+    }
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    //~ добавление пользователя
+    async function connectUser(userName, userPassword) {
+      const response = await fetch("/hello/user", {
+        method: "POST",
+        headers: { "Accept": "application/json", "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: userName,
+          pass: userPassword
+        })
+      });
+      if (response.ok) {
+        const data = await response.json();
+        console.log('>data.user_access:'+data.user_access);
+        console.log('>data.user_id:'+data.user_id);
+        console.log('>data.user_name:'+data.user_name);
+        console.log('>data.user_status:'+data.user_status);
+        if (1 == data.user_access) {
+          window.location.href = '/page210';
+        }
+        else {
+          alert(data.message);
+        }
+      }
+      else
+        console.log(response);
+    }
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    //~ отправка запроса на авторизацию
+    document.getElementById("submitBtn").addEventListener("click", async () => {
+      const user_name = document.getElementById("userName").value;
+      const user_password = document.getElementById("userPassword").value;
+      await connectUser(user_name, user_password);
+      reset();
+    });
+  </script>
+</body>
+</html>
